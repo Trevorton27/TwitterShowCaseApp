@@ -1,4 +1,0 @@
-# twitterAppMain
-# twitterShowcase
-# twitterApp
-# twitterShowcase
