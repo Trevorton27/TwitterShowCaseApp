@@ -1,0 +1,30 @@
+{
+  "name": "node-twitter-app",
+  "version": "1.0.0",
+  "description": "A twitter app using React and Node",
+  "main": "index.js",
+  "scripts": {
+    "server": "node-env-run server --exec nodemon | pino-colada",
+    "start": "node index.js"
+  },
+  "author": "Trevor Mearns",
+  "license": "ISC",
+  "dependencies": {
+    "build": "^0.1.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Trevorton27/TwitterApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Trevorton27/TwitterApp/issues"
+  },
+  "homepage": "https://github.com/Trevorton27/TwitterApp#readme"
+}
