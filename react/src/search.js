@@ -27,6 +27,8 @@ class Search extends React.Component {
     axios.get('/api/tweets?searchTerm=cats').then((response) =>
      {this.setState({searchResults: response.data});
      })
+
+     console.log(response.data);
       //use request library to make http request to api/tweets?searchTerm=cats
       //update searchResults array with response from server
     }
