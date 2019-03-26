@@ -25,7 +25,7 @@ class Search extends React.Component {
     if (this.state.searchTerm !== '') {
       this.setState({searchResults: []});
 
-    axios.get('/api/tweets?searchTerm=cats').then((response) =>{
+    axios.get('/api/tweets?searchTerm=' + ({this.state.searchTerm}).then((response) =>{
       console.log(response.data);
       this.setState({searchResults: response.data});
      })
@@ -67,6 +67,7 @@ class Search extends React.Component {
         <div>
           <span className="card">
             {this.state.searchResults.id}
+            {this.state.searchResults.text}
           </span>
         </div>
       </div>
