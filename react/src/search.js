@@ -23,12 +23,14 @@ class Search extends React.Component {
   searchTweets() {
     console.log('searchTweets function was run');
     if (this.state.searchTerm !== '') {
+      this.setState({searchResults: []});
 
-    axios.get('/api/tweets?searchTerm=cats').then((response) =>
-     {this.setState({searchResults: response.data});
+    axios.get('/api/tweets?searchTerm=cats').then((response) =>{
+      console.log(response.data);
+      this.setState({searchResults: response.data});
      })
 
-     console.log(response.data);
+
       //use request library to make http request to api/tweets?searchTerm=cats
       //update searchResults array with response from server
     }
@@ -58,10 +60,15 @@ class Search extends React.Component {
             </div>
           </div>
         <form className="form-inline md-form mr-auto mb-4">
-        <br/>
+              <br/>
           <input className="form-control mr-sm-2" type="text" placeholder=" " value={this.props.value} onChange={this.handleInputChange} />
           <button className="btn2 btn-elegant btn-rounded btn-sm my-0" type="button" onClick={this.searchTweets}>Find Tweets</button>
         </form>
+        <div>
+          <span className="card">
+            {this.state.searchResults.id}
+          </span>
+        </div>
       </div>
     );
   }

@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/tweets', (request, response) => {
    
+    console.log('GET /api/tweets endpoint was hit')
  getTweets(accessToken).then(tweets => {
      response.send(JSON.parse(tweets).statuses[0]);
  });
@@ -49,9 +50,7 @@ function getTweets(accessToken) {
     });
 }
 
-function searchQuery (getTweets) {
-    //route search query from search.js through and link to getTweets function
-}
+
 
 
 
