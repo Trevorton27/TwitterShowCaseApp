@@ -25,14 +25,10 @@ class Search extends React.Component {
     if (this.state.searchTerm !== '') {
       this.setState({searchResults: []});
 
-    axios.get('/api/tweets?searchTerm=' + ({this.state.searchTerm}).then((response) =>{
+    axios.get('/api/tweets?searchTerm=cats').then((response) =>{
       console.log(response.data);
       this.setState({searchResults: response.data});
      })
-
-
-      //use request library to make http request to api/tweets?searchTerm=cats
-      //update searchResults array with response from server
     }
   }
 
@@ -66,8 +62,9 @@ class Search extends React.Component {
         </form>
         <div>
           <span className="card">
-            {this.state.searchResults.id}
-            {this.state.searchResults.text}
+            {this.state.searchResults.user}
+          
+         
           </span>
         </div>
       </div>
@@ -79,4 +76,4 @@ class Search extends React.Component {
 
 
 
-export default Search
+export default Search;
