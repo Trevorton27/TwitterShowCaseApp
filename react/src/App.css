@@ -136,9 +136,11 @@ font-weight:bold;
 margin-bottom: 20px;
 }
 
-/*.card1 {
+.card1 {
   background-color: white;
-}*/
+  color: #00b6f1;
+  font-size: 18px;
+}
 .container {
   align-content: center;
   background-color: #00b6f1;

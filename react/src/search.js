@@ -3,6 +3,26 @@ import './index.css';
 import './App.css';
 import axios from 'axios';
 
+const tweetData = {
+  id_str: '',
+  user: {
+    name: '',
+    screen_name: '',
+    profile_image_url: ''
+  },
+  text: '',
+  created_at: '',
+  favorite_count: '',
+  retweet_count: '',
+  entities: {
+    media: [],
+    urls: [],
+    user_mentions: [],
+    hashtags: [],
+    symbols: []
+  } 
+}
+
 
 
 
@@ -60,12 +80,8 @@ class Search extends React.Component {
           <input className="form-control mr-sm-2" type="text" placeholder=" " value={this.props.value} onChange={this.handleInputChange} />
           <button className="btn2 btn-elegant btn-rounded btn-sm my-0" type="button" onClick={this.searchTweets}>Find Tweets</button>
         </form>
-        <div>
-          <span className="card">
-            {this.state.searchResults.user}
-          
-         
-          </span>
+        <div className="card">
+        <span> {this.state.searchResults.tweetData} </span>
         </div>
       </div>
     );
