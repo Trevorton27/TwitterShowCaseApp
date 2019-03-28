@@ -3,29 +3,7 @@ import './index.css';
 import './App.css';
 import axios from 'axios';
 
-const tweetData = {
-  id_str: '',
-  user: {
-    name: '',
-    screen_name: '',
-    profile_image_url: ''
-  },
-  text: '',
-  created_at: '',
-  favorite_count: '',
-  retweet_count: '',
-  entities: {
-    media: [],
-    urls: [],
-    user_mentions: [],
-    hashtags: [],
-    symbols: []
-  } 
-}
-
-
-
-
+const app = express();
 
 
 class Search extends React.Component {
@@ -43,9 +21,17 @@ class Search extends React.Component {
   searchTweets() {
     console.log('searchTweets function was run');
     if (this.state.searchTerm !== '') {
-      this.setState({searchResults: []});
+      this.setState({
+        searchResults: []
+      });
 
-    axios.get('/api/tweets?searchTerm=cats').then((response) =>{
+    var getRequestOptions = {
+      params: {
+        searchTerm: this.state.searchTerm
+      }
+    };
+
+    axios.get('/api/tweets', getRequestOptions).then((response) =>{
       console.log(response.data);
       this.setState({searchResults: response.data});
      })
@@ -57,6 +43,16 @@ class Search extends React.Component {
       searchTerm: event.target.value
   })
 }
+
+formatTweets = (tweets) => {
+  this.setState.searchResults {
+  tweets.map(searchResults);
+  console.log(searchResults, 'formatTweets has fired');
+  }
+}
+
+
+
 
   render() {
 
@@ -81,7 +77,7 @@ class Search extends React.Component {
           <button className="btn2 btn-elegant btn-rounded btn-sm my-0" type="button" onClick={this.searchTweets}>Find Tweets</button>
         </form>
         <div className="card">
-        <span> {this.state.searchResults.tweetData} </span>
+        <span> {this.state.searchResults.formatTweets} </span>
         </div>
       </div>
     );
