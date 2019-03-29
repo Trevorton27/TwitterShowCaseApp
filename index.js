@@ -12,10 +12,10 @@ app.use('/static', express.static(path.join(__dirname, 'react', 'build', 'static
 
 
 app.get('/api/tweets', (request, response) => {
-   
+    
     console.log('GET query is: ', request.query.searchTerm);
     getTweets(accessToken, request.query.searchTerm).then(tweets => {
-     response.send(JSON.parse(tweets).statuses[0]);
+     response.send(JSON.parse(tweets).statuses);
  });
 });
 
