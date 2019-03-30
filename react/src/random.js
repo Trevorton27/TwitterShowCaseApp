@@ -4,17 +4,36 @@ import './App.css';
 import axios from 'axios';
 
 
+const searchTermRando = [
+  '?src=typd&q=%40DalaiLama',
+  '?q=%40elonmusk&src=typd',
+  '?q=%40jack&src=typd',
+  '?q=%40natfriedman&src=typd',
+  '?q=%40peterthiel&src=typd'
+];
+
+const randomizeResult = searchTermRando[Math.floor(searchTermRando.length * Math.random()*6)];
+/*
+const randomUser = [
+  'H.H. Dalai Lama @DalaiLama',
+  'Elon Musk @elonmusk',
+  'Jack Dorsey @jack',
+  'Nat Friedman @natfriedman',
+  'Peter Thiel @peterthiel'
+]*/
+
+
 
 class Random extends React.Component {
     constructor(props) {
       super(props);
 
       this.state = {
-        searchTerm: '',
+        randomizeResult: [],
         searchResults: []
       }
 
-      this.searchTweets = this.searchTweets.bind(this);
+      this.searchTweets = this.searchTweets(randomizeResult).bind(this);
     }
 
 searchTweets() {
@@ -26,7 +45,7 @@ searchTweets() {
 
     var getRequestOptions = {
       params: {
-        searchTerm: this.state.searchTerm
+        randomizeResult: this.state.searchTerm
       }
     };
 
@@ -45,9 +64,10 @@ handleInputChange = (event) => {
   })
 }
 
-renderTweets = (tweets) => {
+renderRandomTweet = (tweets) => {
  // tweets = [(Math.floor(Math.random() * tweets.length)];
   tweets.length = 1
+  console.log("renderRandomTweet function was run");
 
   return (tweets.map(tweet => {
     return (
@@ -88,7 +108,7 @@ renderTweets = (tweets) => {
             <div className="card card-body">
               Choose one of the five following famous humans, enter their name in the search field and the finest in random tweets will be displayed. These tweets will be so gosh darn random you'll be like "Whoa."
               <div id="dropDownNumbers">
-                  <br />1. H.H. Dalai Lama
+                  <br />1. <a></a>H.H. Dalai Lama
                   <br />2. 
                   <br />3. 
                   <br />4.
@@ -101,7 +121,7 @@ renderTweets = (tweets) => {
           <input className="form-control mr-sm-2" type="text" placeholder=" " value={this.props.value} onChange={this.handleInputChange} />
           <button className="btn3 btn-elegant btn-rounded btn-sm my-0" type="button" onClick={this.searchTweets}>Find Random Tweets</button>
         </form>
-        {this.renderTweets(this.state.searchResults)}
+        {this.renderRandomTweets(this.state.randomizeResult)}
       </div>
     ); 
   }
