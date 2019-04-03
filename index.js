@@ -19,6 +19,14 @@ app.get('/api/tweets', (request, response) => {
  });
 });
 
+app.get('/api/tweets', (request, response) => {
+    
+    console.log('GET query is: ', request.query.randomizeResult);
+    getRandomTweets(accessToken, request.query.randomizeResult).then(tweets => {
+     response.send(JSON.parse(tweets).statuses);
+ });
+});
+
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'react', 'build', 'index.html'));
 });
