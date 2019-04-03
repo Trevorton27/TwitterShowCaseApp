@@ -49,6 +49,20 @@ function getTweets(accessToken, searchTerm) {
     });
 }
 
+function getRandomTweets(accessToken, randomizeResult) {
+    return request.get('https://api.twitter.com/1.1/search/tweets.json', 
+    {
+        'auth': {
+            'bearer': accessToken
+        },
+        qs: {
+            q: randomizeResult
+        }
+    });
+}
+
+
+
 
 
 

@@ -13,14 +13,7 @@ const searchTermRando = [
 ];
 
 const randomizeResult = searchTermRando[Math.floor(searchTermRando.length * Math.random()*6)];
-/*
-const randomUser = [
-  'H.H. Dalai Lama @DalaiLama',
-  'Elon Musk @elonmusk',
-  'Jack Dorsey @jack',
-  'Nat Friedman @natfriedman',
-  'Peter Thiel @peterthiel'
-]*/
+
 
 
 
@@ -33,19 +26,20 @@ class Random extends React.Component {
         searchResults: []
       }
 
-      this.searchTweets = this.searchTweets(randomizeResult).bind(this);
+      this.getRandomTweets = this.getRandomTweets(randomizeResult).bind(this);
     }
 
-searchTweets() {
+getRandomTweets() {
   console.log('searchTweets function was run from random.js');
-  if (this.state.searchTerm !== '') {
+  if (this.state.randomizeResult !== '') {
     this.setState({
+      randomizeResult: [],
       searchResults: []
     });
 
     var getRequestOptions = {
       params: {
-        randomizeResult: this.state.searchTerm
+        randomizeResult: this.state.randomizeResult
       }
     };
 
@@ -65,7 +59,7 @@ handleInputChange = (event) => {
 }
 
 renderRandomTweet = (tweets) => {
- // tweets = [(Math.floor(Math.random() * tweets.length)];
+
   tweets.length = 1
   console.log("renderRandomTweet function was run");
 
