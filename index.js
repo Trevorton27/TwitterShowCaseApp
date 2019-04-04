@@ -19,11 +19,20 @@ app.get('/api/tweets', (request, response) => {
  });
 });
 
-app.get('/api/tweets', (request, response) => {
-    
-    console.log('GET query is: ', request.query.randomizeResult);
-    getRandomTweets(accessToken, request.query.randomizeResult).then(tweets => {
-     response.send(JSON.parse(tweets).statuses);
+app.get('/api/tweets/random', (request, response) => {
+
+    const searchTermRando = [
+        'DalaiLama',
+        'elonmusk',
+        'jack',
+        'natfriedman',
+        'peterthiel'
+      ];
+      
+      let username = searchTermRando[Math.floor(searchTermRando.length * Math.random()*6)];
+
+    getRandomTweets(accessToken, username).then(tweets => {
+     response.send(JSON.parse(tweets) [0]);
  });
 });
 
@@ -57,14 +66,14 @@ function getTweets(accessToken, searchTerm) {
     });
 }
 
-function getRandomTweets(accessToken, randomizeResult) {
-    return request.get('https://api.twitter.com/1.1/search/tweets.json', 
+function getRandomTweets(accessToken, username) {
+    return request.get('https://api.twitter.com/1.1/statuses/user_timeline.json', 
     {
         'auth': {
             'bearer': accessToken
         },
         qs: {
-            q: randomizeResult
+            screen_name: username
         }
     });
 }

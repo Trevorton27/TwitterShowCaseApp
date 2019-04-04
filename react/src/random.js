@@ -3,7 +3,7 @@ import './index.css';
 import './App.css';
 import axios from 'axios';
 
-
+/*
 const searchTermRando = [
   '?src=typd&q=%40DalaiLama',
   '?q=%40elonmusk&src=typd',
@@ -13,7 +13,7 @@ const searchTermRando = [
 ];
 
 const randomizeResult = searchTermRando[Math.floor(searchTermRando.length * Math.random()*6)];
-
+*/
 
 
 
