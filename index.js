@@ -21,7 +21,7 @@ app.get('/api/tweets', (request, response) => {
 
 app.get('/api/tweets/random', (request, response) => {
 
-    const searchTermRando = [
+   var username = [
         'DalaiLama',
         'elonmusk',
         'jack',
@@ -29,7 +29,9 @@ app.get('/api/tweets/random', (request, response) => {
         'peterthiel'
       ];
       
-      let username = searchTermRando[Math.floor(searchTermRando.length * Math.random()*6)];
+     username = username[Math.floor(username.length * Math.random()*6)];
+
+     console.log(getRandomTweets);
 
     getRandomTweets(accessToken, username).then(tweets => {
      response.send(JSON.parse(tweets) [0]);

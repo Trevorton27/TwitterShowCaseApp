@@ -3,20 +3,6 @@ import './index.css';
 import './App.css';
 import axios from 'axios';
 
-/*
-const searchTermRando = [
-  '?src=typd&q=%40DalaiLama',
-  '?q=%40elonmusk&src=typd',
-  '?q=%40jack&src=typd',
-  '?q=%40natfriedman&src=typd',
-  '?q=%40peterthiel&src=typd'
-];
-
-const randomizeResult = searchTermRando[Math.floor(searchTermRando.length * Math.random()*6)];
-*/
-
-
-
 class Random extends React.Component {
     constructor(props) {
       super(props);
@@ -30,7 +16,7 @@ class Random extends React.Component {
     }
 
 getRandomTweets() {
-  console.log('searchTweets function was run from random.js');
+  console.log('getRandomTweets function was run from random.js');
   if (this.state.randomizeResult !== '') {
     this.setState({
       randomizeResult: [],
