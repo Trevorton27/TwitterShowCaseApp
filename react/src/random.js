@@ -8,28 +8,28 @@ class Random extends React.Component {
       super(props);
 
       this.state = {
-        randomizeResult: [],
+        username: '',
         searchResults: []
       }
 
-      this.getRandomTweets = this.getRandomTweets(randomizeResult).bind(this);
+     // this.getRandomTweets = this.getRandomTweets.bind(this);
     }
 
 getRandomTweets() {
   console.log('getRandomTweets function was run from random.js');
-  if (this.state.randomizeResult !== '') {
+  if (this.state.username !== '') {
     this.setState({
-      randomizeResult: [],
+      username: '',
       searchResults: []
     });
 
     var getRequestOptions = {
       params: {
-        randomizeResult: this.state.randomizeResult
+       username: this.state.username
       }
     };
 
-    axios.get('/api/tweets', getRequestOptions).then((response) => {
+    axios.get('/api/tweets/random', getRequestOptions).then((response) => {
       console.log(response.data);
       this.setState({
         searchResults: response.data
@@ -40,7 +40,7 @@ getRandomTweets() {
 
 handleInputChange = (event) => {
   this.setState({
-    searchTerm: event.target.value
+    username: event.target.value
   })
 }
 
@@ -86,23 +86,23 @@ renderRandomTweet = (tweets) => {
             </p>
           <div className="collapse" id="collapseExample">
             <div className="card card-body">
-              Choose one of the five following famous humans, enter their name in the search field and the finest in random tweets will be displayed. These tweets will be so gosh darn random you'll be like "Whoa."
+              Upon clicking the "Find Random Tweets" button a random tweet from one of the five famous humans below will be called from Twitter. These tweets will be so gosh darn random you'll be like "Whoa."
               <div id="dropDownNumbers">
-                  <br />1. <a></a>H.H. Dalai Lama
-                  <br />2. 
-                  <br />3. 
-                  <br />4.
-                  <br />5.
+                  <br />1. H.H. Dalai Lama
+                  <br />2. Elon Musk
+                  <br />3. Peter Theil
+                  <br />4. Jack Dorsey
+                  <br />5. Nat Friedman
                   </div> 
               </div>
           </div>
         <form className="form-inline md-form mr-auto mb-4">
         <br/>
-          <input className="form-control mr-sm-2" type="text" placeholder=" " value={this.props.value} onChange={this.handleInputChange} />
-          <button className="btn3 btn-elegant btn-rounded btn-sm my-0" type="button" onClick={this.searchTweets}>Find Random Tweets</button>
+          <button className="btn3 btn-elegant btn-rounded btn-sm my-0" type="button" onClick={this.getRandomTweets}>Find Random Tweets</button>
         </form>
-        {this.renderRandomTweets(this.state.randomizeResult)}
-      </div>
+        {this.renderRandomTweets(this.state.searchResults)}
+        </div>
+        
     ); 
   }
 }
