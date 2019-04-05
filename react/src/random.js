@@ -11,8 +11,8 @@ class Random extends React.Component {
         username: '',
         searchResults: []
       }
-
-     // this.getRandomTweets = this.getRandomTweets.bind(this);
+      this.getRandomTweets = this.getRandomTweets.bind(this);
+ 
     }
 
 getRandomTweets() {
@@ -100,7 +100,7 @@ renderRandomTweet = (tweets) => {
         <br/>
           <button className="btn3 btn-elegant btn-rounded btn-sm my-0" type="button" onClick={this.getRandomTweets}>Find Random Tweets</button>
         </form>
-        {this.renderRandomTweets(this.state.searchResults)}
+        {this.renderRandomTweet(this.state.searchResults)}
         </div>
         
     ); 
