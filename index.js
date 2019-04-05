@@ -25,7 +25,7 @@ app.get('/api/tweets/random', (request, response) => {
         'peterthiel'
     ];
 
-    const username = usernames[Math.floor(username.length * Math.random())];
+    const username = usernames[Math.floor(usernames.length * Math.random())];
 
     console.log(getRandomTweets);
 

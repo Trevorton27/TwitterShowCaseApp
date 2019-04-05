@@ -17,6 +17,7 @@ class Random extends React.Component {
 
 getRandomTweets() {
   console.log('getRandomTweets function was run from random.js');
+  
   if (this.state.username !== '') {
     this.setState({
       username: '',
@@ -46,7 +47,7 @@ handleInputChange = (event) => {
 
 renderRandomTweet = (tweets) => {
 
-  tweets.length = 1
+  //tweets.length = 1
   console.log("renderRandomTweet function was run");
 
   return (tweets.map(tweet => {
