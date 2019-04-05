@@ -20,7 +20,6 @@ getRandomTweets() {
   
   if (this.state.username !== '') {
     this.setState({
-      username: '',
       searchResults: []
     });
 
