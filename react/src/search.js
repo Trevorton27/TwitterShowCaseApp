@@ -45,36 +45,35 @@ handleInputChange = (event) => {
 }
 
 renderTweets = (tweets) => {
+
+  console.log('Yup. renderTweets function was run, sure enough.');
   tweets.length = 10
 
   return (tweets.map(tweet => {
     return (
       <div className="card">
         <div className="tweet">
-       {tweet.user.profile_image_url_https}
+       <img className="profile-image" src={tweet.user.profile_image_url_https} />
         </div>
         <div className="tweet">
         {tweet.user.description}
         </div>
         <div className="tweet">
-         Name {tweet.user.name}
+         Name: {tweet.user.name}
         </div>
         <div className="tweet">
-        Screen Name {tweet.user.screen_name}
+        Screen Name: {tweet.user.screen_name}
         </div>
         <div className="tweet">
-        {tweet.full_text}
+        {tweet.text}
         </div>
         <div className="tweet">
-        Created {tweet.created_at}
+        Created: {tweet.created_at}
         </div>
       </div>
     )
   }))
 }
-
-
-
 
   render() {
 

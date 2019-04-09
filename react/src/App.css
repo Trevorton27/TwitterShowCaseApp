@@ -103,6 +103,10 @@ nav:active {
   color: #1da1f2;
   font-size: 18px;
   font-weight: bold;
+  margin-top: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .btn:hover {
@@ -133,6 +137,7 @@ font-size: 18px;
 text-align: left;
 padding: 50px;
 font-weight:bold;
+padding-bottom: 20px;
 margin-bottom: 20px;
 }
 
@@ -162,8 +167,6 @@ margin-bottom: 20px;
   margin-left: 31.5%;
   margin-right: auto;
   text-align: center;
-
- 
 }
 
 a { white-space: nowrap; }
@@ -171,4 +174,11 @@ a { white-space: nowrap; }
 .container3 {
   height: 300px;
   background-color: #00b6f1;
+}
+
+.profile-image {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1px;
+  width: 120px;
 }
