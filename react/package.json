@@ -11,9 +11,20 @@
     "react-router": "^4.3.1",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "^2.1.8"
+  },
+  "watch": {
+    "build":{
+      "patterns": [
+        "src"
+      ],
+      "extensions": "html,css,js",
+      "quiet": false
+
+    }
   },
   "scripts": {
+    "watch": "npm-watch build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -24,5 +35,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "npm-watch": "^0.6.0"
+  }
 }

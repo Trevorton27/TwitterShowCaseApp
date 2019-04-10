@@ -10,9 +10,7 @@ class Random extends React.Component {
       this.state = {
         username: '',
         searchResults: {
-            user: {
-
-            }
+            
         }
       }
       this.getRandomTweets = this.getRandomTweets.bind(this);
@@ -25,8 +23,6 @@ getRandomTweets() {
     this.setState({
       searchResults: {
       
-         user: {
-         }
       }
     });
 
@@ -45,9 +41,9 @@ getRandomTweets() {
  renderRandomTweet = (tweet) => {
 
   console.log("renderRandomTweet function was run");
-//if (this.state == this.getRandomTweets()) {
-   
-     return (
+
+   if (Object.keys(tweet).length > 0) {
+    return (
       <div className="card">
         <div className="tweet">
        <img className="profile-image" src={tweet.user.profile_image_url_https} />
@@ -69,7 +65,8 @@ getRandomTweets() {
         </div>
       </div>
     );
-   }
+   } 
+  }
  
 
 
@@ -99,7 +96,6 @@ getRandomTweets() {
             <br/>
               <button className="btn3 btn-elegant btn-rounded btn-sm my-0" type="button" onClick={this.getRandomTweets}>Find Random Tweets</button>
             <br />
-        
         {this.renderRandomTweet(this.state.searchResults)}
         </div>   
     ); 

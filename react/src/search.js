@@ -17,7 +17,7 @@ class Search extends React.Component {
     }
 
 searchTweets() {
-  console.log('searchTweets function was run');
+  console.log('searchTweets function done got run now.');
   if (this.state.searchTerm !== '') {
     this.setState({
       searchResults: []
@@ -65,7 +65,7 @@ renderTweets = (tweets) => {
         Screen Name: {tweet.user.screen_name}
         </div>
         <div className="tweet">
-        {tweet.text}
+        Text: {tweet.text}
         </div>
         <div className="tweet">
         Created: {tweet.created_at}
