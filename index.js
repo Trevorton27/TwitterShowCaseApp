@@ -3,6 +3,8 @@ const app = express();
 const request = require('request-promise');
 const path = require('path');
 
+const port = process.env.PORT || 3000;
+
 var accessToken = '';
 
 app.use('/static', express.static(path.join(__dirname, 'react', 'build', 'static')));
@@ -38,7 +40,7 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'react', 'build', 'index.html'));
 });
 
-app.listen(3000, () => console.log('Gator app listening on port 3000!'));
+app.listen(port, () => console.log('Gator app listening on port 3000!'));
 
 request.post('https://api.twitter.com/oauth2/token', {
             form: {
