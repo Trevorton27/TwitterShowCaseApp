@@ -1,2 +1,1 @@
-web:  node index.js -p 3000
-web: express
+web:  node index.js 
