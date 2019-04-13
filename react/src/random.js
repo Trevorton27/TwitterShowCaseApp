@@ -46,7 +46,7 @@ getRandomTweets() {
     return (
       <div className="card">
         <div className="tweet">
-       <img className="profile-image" src={tweet.user.profile_image_url_https} />
+       <img className="profile-image" alt="profile picture" src={tweet.user.profile_image_url_https} />
         </div>
         <div className="tweet">
         {tweet.user.description}

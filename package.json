@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "node-env-run server --exec nodemon | pino-colada",
-    "start": "npm start"
+    "start": "node index.js"
   },
   "author": "Trevor Mearns",
   "license": "ISC",
