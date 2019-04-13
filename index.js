@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 var accessToken = '';
 
-app.use('/static', express.static(path.join(__dirname, 'react', 'build', 'static')));
+app.use('/static', express.static(path.join(__dirname, 'react', 'build', 'index.html')));
 
 app.get('/api/tweets', (request, response) => {
 
