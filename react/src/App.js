@@ -28,10 +28,12 @@ render() {
             <Link to="/search">Search</Link>
           </li>
         </ul>
+      
         <Route path="/home" component={Home} />
         <Route path="/random" component={Random} />
         <Route path="/search" component={Search} />
         <Redirect from="/" to="/home" />
+    
       </div>
       </Router>
       <div className="card-footer text-center">

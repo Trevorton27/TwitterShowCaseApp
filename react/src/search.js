@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import './App.css';
 import axios from 'axios';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 
 class Search extends React.Component {
@@ -78,6 +79,7 @@ renderTweets = (tweets) => {
   render() {
 
   return (
+    <PerfectScrollbar>
       <div className="container">
       <br/>
       <h3 className="card-title">Welcome To The Search Page. <br/>Enter your query below. </h3>
@@ -99,6 +101,7 @@ renderTweets = (tweets) => {
         </form>
         {this.renderTweets(this.state.searchResults)}
       </div>
+      </PerfectScrollbar>
     );
   }
 }

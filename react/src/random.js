@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import './App.css';
 import axios from 'axios';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 class Random extends React.Component {
     constructor(props) {
@@ -73,6 +74,7 @@ getRandomTweets() {
 
   render() {
     return (
+      <PerfectScrollbar>
     <div className="container">
       <br/>
       <h3 className="card-title">Welcome To The Random Tweet Finder.</h3>
@@ -99,6 +101,7 @@ getRandomTweets() {
             <br />
         {this.renderRandomTweet(this.state.searchResults)}
         </div>   
+        </PerfectScrollbar>
     ); 
   }
 }

@@ -1,12 +1,14 @@
 import React from 'react';
 import './index.css';
 import './App.css';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 class Home extends React.Component {
   render() {
     
 
     return (
+      <PerfectScrollbar>
      <div className="container">
         <br/>
         <h2 className="card-title"> Welcome To My Twitter App. <br/></h2>
@@ -47,6 +49,7 @@ class Home extends React.Component {
             <div className="container3">
             </div>
       </div>
+      </PerfectScrollbar>
         ); 
   }
 }

@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server": "node-env-run server --exec nodemon | pino-colada",
-    "start": "concurrently \"nodemon index.js\" \"cd react && npm run watch\"",
-    "heroku-postbuild": "cd react && npm install && npm run build"
+    "start": "concurrently \"node index.js\" \"cd react && npm run watch\"",
+    "heroku-postbuild": "cd react && npm install && npm run build",
+    "build": "node index.js && cd react && npm run build"
   },
   "author": "Trevor Mearns",
   "license": "ISC",
