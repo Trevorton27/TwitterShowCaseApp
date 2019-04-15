@@ -63,6 +63,8 @@ getRandomTweets() {
         <div className="tweet">
         Created: {tweet.created_at}
         </div>
+        <div className="spacer">
+        </div>
       </div>
     );
    } 
