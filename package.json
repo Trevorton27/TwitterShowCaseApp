@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node-env-run server --exec nodemon | pino-colada",
     "start": "node index.js",
-    "heroku post-build": "cd react && npm run build"
+    "heroku-postbuild": "cd react && npm install && npm run build"
   },
   "author": "Trevor Mearns",
   "license": "ISC",
