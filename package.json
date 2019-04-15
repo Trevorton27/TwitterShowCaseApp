@@ -15,7 +15,6 @@
     "request-promise": "^4.2.4",
     "twit": "^2.2.11",
     "express": "^4.16.4"
-    
   },
   "devDependencies": {
     "body-parser": "^1.18.3",
