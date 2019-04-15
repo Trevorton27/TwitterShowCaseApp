@@ -5,8 +5,6 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 
 class Home extends React.Component {
   render() {
-    
-
     return (
       <PerfectScrollbar>
      <div className="container">
@@ -34,13 +32,13 @@ class Home extends React.Component {
               <div className="card card-body">
               This app will allow you to search for tweets on Twitter either by user name or keywords in the content of the tweet. If, for example, you're "way into" practicing deadlifts while wearing a gorilla costume, you could enter something like "gorilla costume deadlifts" into your search query and see what kind of relevant tweets Twitter has to offer. <br/> <br/>
                It also has a "random tweet finder" which will allow you to find random tweets from the following five famous humans.
-               (I chose them myself. Yay!):
+               (I chose them all by myself.):
                  <div id="dropDownNumbers">
                   <br />1. H.H. Dalai Lama
-                  <br />2. 
-                  <br />3.
-                  <br />4.
-                  <br />5.
+                  <br />2. Elon Musk
+                  <br />3. Peter Theil
+                  <br />4. Jack Dorsey
+                  <br />5. Nat Friedman
                   </div> 
                   <br/>
               To use this feature, you'll have to go to the "Random Tweet Finder" page and follow the directions. Have fun.
