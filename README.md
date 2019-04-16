@@ -1,6 +1,8 @@
-# Project Title
+# Twitter Showcase App
 
-One Paragraph of project description goes here
+A three page SPA (single page application)app designed to show ability in working with both internal and external APIs using Node.js, React, ExpressJs and Axios libraries.
+
+View live on [Heroku](https://stormy-plateau-30346.herokuapp.com/home)
 
 ## Getting Started
 
@@ -70,9 +72,9 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
-## Authors
+## Author
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Trevor Mearns* - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
