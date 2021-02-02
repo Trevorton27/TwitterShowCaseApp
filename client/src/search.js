@@ -33,7 +33,7 @@ class Search extends React.Component {
         console.log(response.data);
         this.setState({
           //response.statuses.data?
-          searchResults: response.statuse.data
+          searchResults: response.statuses.data
         });
       });
     }
