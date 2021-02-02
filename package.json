@@ -12,11 +12,13 @@
   "author": "Trevor Mearns",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "build": "^0.1.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "twit": "^2.2.11",
-    "express": "^4.16.4"
+    "twit": "^2.2.11"
   },
   "devDependencies": {
     "body-parser": "^1.18.3",
