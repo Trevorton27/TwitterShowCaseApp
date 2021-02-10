@@ -1,15 +1,18 @@
 const express = require('express');
 const path = require('path');
 const axios = require('axios');
+const { response } = require('express');
 const app = express();
-require('dotenv').config();
 const port = process.env.PORT || 3000;
+
+require('dotenv').config();
+
 let accessToken = '';
 const getToken = () => {
   if (accessToken) return accessToken;
   const config = {
     headers: {
-      Content_Type: 'application/x-www-form-urlencode'
+      Content_Type: 'application/json'
     },
     auth: {
       username: process.env.API_KEY,
@@ -23,29 +26,26 @@ const getToken = () => {
       config
     )
     .then((response) => {
-      // axios.defaults.headers.common = {
-      //   Authorization: `Bearer ${response.data.access_token}`
-      // };
-      console.log('access token: ', response.data.access_token);
-      accessToken = response.data.access_token;
-      // return response.data.access_token;
+      console.log(response);
+      axios.defaults.headers.common = {
+        Authorization: `Bearer ${response.data.access_token}`
+      };
+      return response.data.access_token;
     })
-    .catch((error) => console.log('error is ', error));
+    .catch((error) => console.log(error));
 };
-
-getToken();
 
 app.use(
   '/static',
   express.static(path.join(__dirname, 'client', 'build', 'static'))
 );
 app.get('/api/tweets', async (req, res) => {
-  // await getToken();
+  await getToken();
   const searchTerm = req.query.searchTerm;
   axios
     .get(`https://api.twitter.com/1.1/search/tweets.json?q=${searchTerm}`)
     .then((response) => {
-      res.send(JSON.parse(response));
+      res.send(response);
       console.log(response);
     })
     .catch((error) => {
@@ -54,7 +54,7 @@ app.get('/api/tweets', async (req, res) => {
     });
 });
 app.get('/api/tweets/random', async (req, res) => {
-  // await getToken();
+  await getToken();
   const usernames = [
     'DalaiLama',
     'elonmusk',
@@ -65,17 +65,12 @@ app.get('/api/tweets/random', async (req, res) => {
   const username = usernames[Math.floor(usernames.length * Math.random())];
   axios
     .get(
-      `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${username}`,
-      {
-        headers: {
-          Content-Type: 'application/json',
-          Accept: 'application/json',
-          Authorization: `Bearer ${accessToken}`
-        }
-      }
+      `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${username}`
     )
-    .then((response) => response.json())
-    .then((response) => res.send(response.data[0]))
+    .then((response) => {
+      console.log(res.status);
+      res.send(response.data[0]);
+    })
     .catch((error) => {
       res.sendStatus(500);
       console.log(error);
@@ -85,3 +80,4 @@ app.get('/*', (req, res) =>
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 );
 app.listen(port, () => console.log(`Gator app listening on port ${port}`));
+console.log('hi.');
