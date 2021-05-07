@@ -25,12 +25,12 @@ const getToken = () => {
       'grant_type=client_credentials',
       config
     )
-    .then((response) => {
-      console.log(response);
+    .then((res) => {
+      console.log(res);
       axios.defaults.headers.common = {
-        Authorization: `Bearer ${response.data.access_token}`
+        Authorization: `Bearer ${res.data.access_token}`
       };
-      return response.data.access_token;
+      return res.data.access_token;
     })
     .catch((error) => console.log(error));
 };
@@ -44,9 +44,9 @@ app.get('/api/tweets', async (req, res) => {
   const searchTerm = req.query.searchTerm;
   axios
     .get(`https://api.twitter.com/1.1/search/tweets.json?q=${searchTerm}`)
-    .then((response) => {
-      res.send(response);
-      console.log(response);
+    .then((res) => {
+      res.send(res);
+      console.log(res);
     })
     .catch((error) => {
       res.sendStatus(500);
@@ -63,19 +63,18 @@ app.get('/api/tweets/random', async (req, res) => {
     'peterthiel'
   ];
   const username = usernames[Math.floor(usernames.length * Math.random())];
-  axios
-    .get(
+  try {
+    const response = await axios.get(
       `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${username}`
-    )
-    .then((response) => {
-      console.log(res.status);
-      res.send(response.data[0]);
-    })
-    .catch((error) => {
-      res.sendStatus(500);
-      console.log(error);
-    });
+    );
+    console.log(response.data);
+    res.send(response.data);
+  } catch (error) {
+    res.sendStatus(500);
+    console.log(error);
+  }
 });
+
 app.get('/*', (req, res) =>
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 );
