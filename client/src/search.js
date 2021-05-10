@@ -30,10 +30,8 @@ class Search extends React.Component {
       };
 
       axios.get('/api/tweets', getRequestOptions).then((response) => {
-        console.log(response.data);
         this.setState({
-          //response.statuses.data?
-          searchResults: response.statuses.data
+          searchResults: response.data.statuses
         });
       });
     }
@@ -45,8 +43,8 @@ class Search extends React.Component {
     });
   };
 
-  renderTweets = (tweets) => {
-    console.log('Yup. renderTweets function was run, sure enough.');
+  renderTweets = () => {
+    const tweets = this.state.searchResults;
     tweets.length = 10;
 
     return tweets.map((tweet) => {

@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 require('dotenv').config();
 
 let accessToken = '';
+
 const getToken = () => {
   if (accessToken) return accessToken;
   const config = {
@@ -26,7 +27,7 @@ const getToken = () => {
       config
     )
     .then((res) => {
-      console.log(res);
+      //console.log(res);
       axios.defaults.headers.common = {
         Authorization: `Bearer ${res.data.access_token}`
       };
@@ -35,6 +36,8 @@ const getToken = () => {
     .catch((error) => console.log(error));
 };
 
+getToken();
+
 app.use(
   '/static',
   express.static(path.join(__dirname, 'client', 'build', 'static'))
@@ -42,16 +45,17 @@ app.use(
 app.get('/api/tweets', async (req, res) => {
   await getToken();
   const searchTerm = req.query.searchTerm;
-  axios
-    .get(`https://api.twitter.com/1.1/search/tweets.json?q=${searchTerm}`)
-    .then((res) => {
-      res.send(res);
-      console.log(res);
-    })
-    .catch((error) => {
-      res.sendStatus(500);
-      console.log(error);
-    });
+
+  try {
+    const response = await axios.get(
+      `https://api.twitter.com/1.1/search/tweets.json?q=${searchTerm}`
+    );
+    //console.log(response.data);
+    res.send(response.data);
+  } catch (error) {
+    res.sendStatus(500);
+    console.log(error);
+  }
 });
 app.get('/api/tweets/random', async (req, res) => {
   await getToken();
@@ -67,7 +71,7 @@ app.get('/api/tweets/random', async (req, res) => {
     const response = await axios.get(
       `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=${username}`
     );
-    console.log(response.data);
+    //console.log(response.data);
     res.send(response.data);
   } catch (error) {
     res.sendStatus(500);

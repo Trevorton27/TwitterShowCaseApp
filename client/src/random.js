@@ -16,45 +16,88 @@ class Random extends React.Component {
     this.renderRandomTweet = this.renderRandomTweet.bind(this);
   }
 
-  getRandomTweets() {
-    console.log('getRandomTweets function was run from random.js');
-
-    this.setState({
-      searchResults: []
-    });
-
+  getRandomTweets = () => {
     axios.get('/api/tweets/random').then((response) => {
-      console.log('response in random.js: ', response);
       this.setState({
         searchResults: response.data
       });
       console.log('searchResults: ', this.state.searchResults);
     });
-  }
+  };
 
-  renderRandomTweet = () => {
-    console.log('renderRandomTweet function was run');
-    this.state.searchResults !== []
-      ? this.state.searchResults.map((tweet) => {
-          return (
-            <div className='card'>
-              <div className='tweet'>
+  renderRandomTweet(tweets) {
+    // console.log('renderRandomTweet function was run');
+    // const tweets = this.state.searchResults;
+
+    return tweets.map((tweet) => {
+      const date = new Date(tweet.created_at);
+
+      const options = {
+        hour: 'numeric',
+        minute: 'numeric'
+      };
+      const newDateFormat = Intl.DateTimeFormat('en-US').format(date);
+      const newTimeFormat = Intl.DateTimeFormat('en-US', options).format(date);
+      return (
+        <div className='row justify-content-center'>
+          <div
+            className='card  mb-3 col-6'
+            style={{ paddingLeft: '0px', paddingRight: '0px' }}
+          >
+            <div
+              class='card card-header mb-3'
+              style={{ paddingBottom: '0px', backgroundColor: '#fff' }}
+            >
+              <div
+                style={{
+                  marginBottom: '20px',
+                  margin: '0px',
+                  display: 'inlineBlock'
+                }}
+              >
+                {' '}
                 <img
                   className='profile-image'
                   alt='profile picture'
-                  //src={tweet.user.profile_image_url}
+                  src={tweet.user.profile_image_url}
+                  style={{ marginBottom: '20px' }}
                 />
-              </div>
-              <div className='tweet'>{tweet.user.description}</div>
-              <div className='tweet'>Name: {tweet.user.name}</div>
-              <div className='tweet'>Screen Name: {tweet.user.screen_name}</div>
-              <div className='tweet'>{tweet.text}</div>
-              <div className='tweet'>Created: {tweet.created_at}</div>
+                <div>{tweet.user.name}</div>
+                <p style={{ fontSize: '13px' }}>{tweet.user.description}</p>
+              </div>{' '}
             </div>
-          );
-        })
-      : null;
-  };
+            <div
+              class='card-body text-dark'
+              style={{ paddingBottom: '0px', paddingTop: '0px' }}
+            >
+              <p class='card-text'>"{tweet.text}"</p>
+              <div
+                style={{
+                  padding: '8px',
+                  width: '100%',
+                  fontSize: '13px',
+                  float: 'left',
+                  backgroundColor: '#fff',
+                  borderTop: '1px'
+                }}
+              >
+                {' '}
+                <p
+                  style={{
+                    marginBottom: '0px',
+                    fontSize: '10px',
+                    color: '#6f7d88'
+                  }}
+                >
+                  Created at: {newDateFormat} - {newTimeFormat}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
 
   render() {
     return (
@@ -103,7 +146,10 @@ class Random extends React.Component {
             Find Random Tweets
           </button>
           <br />
-          {this.renderRandomTweet}
+          <div className='randomTweetWrapper'></div>
+          {this.state.searchResults.length !== 0
+            ? this.renderRandomTweet(this.state.searchResults)
+            : null}
         </div>
       </PerfectScrollbar>
     );
