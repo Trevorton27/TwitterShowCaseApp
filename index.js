@@ -44,11 +44,11 @@ app.use(
 );
 app.get('/api/tweets', async (req, res) => {
   await getToken();
-  const searchTerm = req.query.searchTerm;
+  const searchTerm = req.query.search_term;
 
   try {
     const response = await axios.get(
-      `https://api.twitter.com/1.1/search/tweets.json?q=${searchTerm}`
+      `https://api.twitter.com/1.1/search/tweets.json?q=${searchTerm}&count=10&result_type=popular`
     );
     //console.log(response.data);
     res.send(response.data);

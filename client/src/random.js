@@ -1,31 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import './App.css';
 import axios from 'axios';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
-class Random extends React.Component {
-  constructor(props) {
-    super(props);
+const Random = () => {
+  //const [userName, setUserName] = useState('')
+  const [randomUser, setRandomUser] = useState([]);
 
-    this.state = {
-      username: '',
-      searchResults: []
-    };
-    this.getRandomTweets = this.getRandomTweets.bind(this);
-    this.renderRandomTweet = this.renderRandomTweet.bind(this);
-  }
-
-  getRandomTweets = () => {
+  const getRandomTweets = () => {
     axios.get('/api/tweets/random').then((response) => {
-      this.setState({
-        searchResults: response.data
-      });
-      console.log('searchResults: ', this.state.searchResults);
+      setRandomUser(response.data);
     });
   };
 
-  renderRandomTweet(tweets) {
+  const renderRandomTweet = (tweets) => {
     // console.log('renderRandomTweet function was run');
     // const tweets = this.state.searchResults;
 
@@ -97,63 +86,59 @@ class Random extends React.Component {
         </div>
       );
     });
-  }
+  };
 
-  render() {
-    return (
-      <PerfectScrollbar>
-        <div className='container'>
-          <br />
-          <h3 className='card-title'>Welcome To The Random Tweet Finder.</h3>
-          <p>
-            <button
-              className='btn btn-primary'
-              type='button'
-              data-toggle='collapse'
-              data-target='#collapseExample'
-              aria-expanded='false'
-              aria-controls='collapseExample'
-            >
-              How does this work?
-            </button>
-          </p>
-          <div className='collapse' id='collapseExample'>
-            <div className='card card-body'>
-              Upon clicking the "Find Random Tweets" button a random tweet from
-              one of the five famous humans below will be called from Twitter.
-              These tweets will be so gosh darn random you'll be like "Whoa."
-              <div id='dropDownNumbers'>
-                <br />
-                1. H.H. Dalai Lama
-                <br />
-                2. Elon Musk
-                <br />
-                3. Peter Theil
-                <br />
-                4. Jack Dorsey
-                <br />
-                5. Nat Friedman
-              </div>
+  return (
+    <PerfectScrollbar>
+      <div className='container'>
+        <br />
+        <h3 className='card-title'>Welcome To The Random Tweet Finder.</h3>
+        <p>
+          <button
+            className='btn btn-primary'
+            type='button'
+            data-toggle='collapse'
+            data-target='#collapseExample'
+            aria-expanded='false'
+            aria-controls='collapseExample'
+          >
+            How does this work?
+          </button>
+        </p>
+        <div className='collapse' id='collapseExample'>
+          <div className='card card-body'>
+            Upon clicking the "Find Random Tweets" button a random tweet from
+            one of the five famous humans below will be called from Twitter.
+            These tweets will be so gosh darn random you'll be like "Whoa."
+            <div id='dropDownNumbers'>
+              <br />
+              1. H.H. Dalai Lama
+              <br />
+              2. Elon Musk
+              <br />
+              3. Peter Theil
+              <br />
+              4. Jack Dorsey
+              <br />
+              5. Nat Friedman
             </div>
           </div>
-
-          <br />
-          <button
-            className='btn3 btn-elegant btn-rounded btn-sm my-0'
-            type='button'
-            onClick={this.getRandomTweets}
-          >
-            Find Random Tweets
-          </button>
-          <br />
-          <div className='randomTweetWrapper'></div>
-          {this.state.searchResults.length !== 0
-            ? this.renderRandomTweet(this.state.searchResults)
-            : null}
         </div>
-      </PerfectScrollbar>
-    );
-  }
-}
+
+        <br />
+        <button
+          className='btn3 btn-elegant btn-rounded btn-sm my-0'
+          type='button'
+          onClick={getRandomTweets}
+        >
+          Find Random Tweets
+        </button>
+        <br />
+        <div className='randomTweetWrapper'></div>
+        {randomUser.length !== 0 ? renderRandomTweet(randomUser) : null}
+      </div>
+    </PerfectScrollbar>
+  );
+};
 
 export default Random;
