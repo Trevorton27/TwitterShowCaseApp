@@ -48,7 +48,7 @@ app.get('/api/tweets', async (req, res) => {
 
   try {
     const response = await axios.get(
-      `https://api.twitter.com/1.1/search/tweets.json?q=${searchTerm}&count=10&result_type=popular`
+      `https://api.twitter.com/1.1/search/tweets.json?q=${searchTerm}&count=10&tweet_mode=extended&result_type=popular`
     );
     //console.log(response.data);
     res.send(response.data);

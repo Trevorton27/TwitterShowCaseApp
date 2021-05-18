@@ -129,13 +129,20 @@ nav:active {
 }
 
 .card {
-  color: #000;
+  background-color: #2d2d2d;
+  color: #fff;
   font-size: 15px;
   text-align: left;
   font-weight: bold;
   margin-bottom: 1em;
   width: 100%;
+  padding-left: 2em;
+  padding-top: 2em;
 }
+
+/* .tweet {
+  padding: 1em, 1em, 1em, 1em !important;
+} */
 
 .cardBottom {
   padding: 5px;
@@ -183,7 +190,8 @@ a {
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  min-width: 25%;
+  width: 10%;
+  margin-bottom: 1em;
 }
 
 .card-header {

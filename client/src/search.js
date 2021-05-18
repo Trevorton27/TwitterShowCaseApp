@@ -14,6 +14,7 @@ const Search = () => {
 
     axios.get(`/api/tweets/?search_term=${searchTerm}`).then((response) => {
       setSearchResults(response.data.statuses);
+      console.log('search response: ', response);
     });
   };
 
@@ -33,20 +34,44 @@ const Search = () => {
       const newDateFormat = Intl.DateTimeFormat('en-US').format(date);
       const newTimeFormat = Intl.DateTimeFormat('en-US', options).format(date);
 
+      const spanStyle = {
+        margin: '2em'
+      };
+
+      const tweetStyle = {
+        paddingLeft: '1em',
+        paddingTop: '1em'
+      };
+
       return (
         <div className='card' key={tweet.id}>
-          <div className='tweet'>
+          <div>
+            {' '}
             <img
               className='profile-image'
               src={tweet.user.profile_image_url_https}
             />
           </div>
+
           <div className='tweet'>{tweet.text}</div>
-          <div className='tweet'> {tweet.user.name}</div>
-          <div className='tweet'> {tweet.user.screen_name}</div>
-          <div className='tweet'> {tweet.text}</div>
-          <div className='tweet'>
-            Created at: {newDateFormat} - {newTimeFormat}
+          <div className='tweet' style={{ fontSize: '23px' }}>
+            {' '}
+            {tweet.user.name}
+          </div>
+          <div className='tweet'> {tweet.full_text}</div>
+          <div className='tweet justify-content-center'>
+            <span style={spanStyle}>
+              {' '}
+              <i className='fa fa-heart like-button' /> {tweet.favorite_count}
+            </span>{' '}
+            <span style={spanStyle}>
+              {' '}
+              <i className='fa fa-retweet retweet-button' />{' '}
+              {tweet.retweet_count}
+            </span>{' '}
+            <span style={spanStyle}>
+              Created at: {newDateFormat} - {newTimeFormat}
+            </span>
           </div>
         </div>
       );
@@ -80,7 +105,10 @@ const Search = () => {
             last 7 days. Isn't that just swell?
           </div>
         </div>
-        <form className='form-inline md-form mr-auto mb-4'>
+        <form
+          className='form-inline md-form mr-auto mb-4'
+          onSubmit={searchTweets}
+        >
           <br />
           <input
             className='form-control mr-sm-2'
@@ -90,8 +118,7 @@ const Search = () => {
           />
           <button
             className='btn2 btn-elegant btn-rounded btn-sm my-0'
-            type='button'
-            onClick={searchTweets}
+            type='submit'
           >
             Find Tweets
           </button>
