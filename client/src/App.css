@@ -32,6 +32,10 @@ code {
   color: #00b6f1;
 }
 
+.navLink:hover {
+  text-decoration: none;
+}
+
 nav:active {
   color: gray;
 }
@@ -131,11 +135,12 @@ nav:active {
 .card {
   background-color: #2d2d2d;
   color: #fff;
+  margin: auto;
   font-size: 15px;
   text-align: left;
   font-weight: bold;
   margin-bottom: 1em;
-  width: 100%;
+  width: 60%;
   padding-left: 2em;
   padding-top: 2em;
 }

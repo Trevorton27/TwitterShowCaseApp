@@ -15,20 +15,25 @@ class App extends Component {
           <div>
             <ul className='nav nav-tabs justify-content-center'>
               <li className='nav-item'>
-                <Link to='/home'>Home</Link>
+                <Link to='/home' className='navLink'>
+                  Home
+                </Link>
               </li>
               <li className='nav-item'>
-                <Link to='/random'>Random Tweet Finder</Link>
+                <Link to='/random' className='navLink'>
+                  Random Tweet Finder
+                </Link>
               </li>
               <li className='nav-item'>
-                <Link to='/search'>Search</Link>
+                <Link to='/search' className='navLink'>
+                  Search
+                </Link>
               </li>
             </ul>
 
-            <Route path='/home' component={Home} />
-            <Route path='/random' component={Random} />
-            <Route path='/search' component={Search} />
-            <Redirect from='/' to='/home' />
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/random' component={Random} />
+            <Route exact path='/search' component={Search} />
           </div>
         </Router>
         <div className='card-footer text-center' style={{ marginTop: '2em' }}>
