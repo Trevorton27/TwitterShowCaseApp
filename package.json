@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A twitter app using React and Node",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "server": "node-env-run server --exec nodemon | pino-colada",
     "dev": "concurrently \"nodemon index.js\" \"cd client && npm run watch\"",
