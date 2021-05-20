@@ -15,7 +15,7 @@ class App extends Component {
           <div>
             <ul className='nav nav-tabs justify-content-center'>
               <li className='nav-item'>
-                <Link to='/home' className='navLink'>
+                <Link to='/' className='navLink'>
                   Home
                 </Link>
               </li>
@@ -31,7 +31,7 @@ class App extends Component {
               </li>
             </ul>
 
-            <Route exact path='/home' component={Home} />
+            <Route exact path='/' component={Home} />
             <Route exact path='/random' component={Random} />
             <Route exact path='/search' component={Search} />
           </div>
