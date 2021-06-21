@@ -16,7 +16,7 @@ This was one of my first full stack apps working with React and NodeJS. It was a
 4. Run npm install from both in top level directory and from within the client folder.
 5. run npm install dotenv
 6. Create folder called .env in top level of directory
-7. Inside .env add the lines API_KEY=your api key and API_SECRET_KEY=your secret api key (replace text after = with the credentials you receive from developer.twitter.com)
+7. Inside .env add the lines API_KEY=yourApiKey and API_SECRET_KEY=yourSecretKey (replace text after = with the credentials you receive from developer.twitter.com)
 8. from within top level directory of app, run npm start. The app should open at http://localhost:3000/
 
 ## Author
