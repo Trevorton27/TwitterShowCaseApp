@@ -1,89 +1,27 @@
 # Twitter Showcase App
+ 
+ ### A full stack web app built with Node Js and React that uses authentication to call data from the Twitter API.
+ 
+#### See it [here](https://twitteris-appicus.herokuapp.com/)
+ 
+ ![](readMeScreenshot.png)
+ 
+## Summary
+This was one of my first full stack apps working with React and NodeJS. It was a lot of fun to figure out and increased my skill as a programmer considerably. I learned a lot about the value of separation of concerns, working with Node as a web server, authenticating with a token and calling data from a 3rd party and rendering it in the UI.
 
-A three page SPA (single page application)app designed to show ability in working with both internal and external APIs using Node.js, React, ExpressJs and Axios libraries.
-
-View live on [Heroku](https://stormy-plateau-30346.herokuapp.com/home)
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+##Installation
+1. Clone repository.
+2. Create a developer account at [developer.twitter.com](https://developer.twitter.com/en) 
+3. Create new app and follow directions to generate API KEY and SECRET KEY.
+4. Run npm install from both in top level directory and from within the client folder.
+5. run npm install dotenv
+6. Create folder called .env in top level of directory
+7. Inside .env add the lines API_KEY=<your api key> and API_SECRET_KEY=<your secret api key> (replace <text> with the credentials you receive from developer.twitter.com)
+8. from within top level directory of app, run npm start. The app should open at http://localhost:3000/
 
 ## Author
+Trevor Mearns - Full Stack Software Developer [LinkedIn](https://www.linkedin.com/in/trevor-mearns-8a042a56/) | [Personal Website] currently under reconstruction.
 
-* **Trevor Mearns* - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
