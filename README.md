@@ -9,7 +9,7 @@
 ## Summary
 This was one of my first full stack apps working with React and NodeJS. It was a lot of fun to figure out and increased my skill as a programmer considerably. I learned a lot about the value of separation of concerns, working with Node as a web server, authenticating with a token and calling data from a 3rd party and rendering it in the UI.
 
-##Installation
+## Installation
 1. Clone repository.
 2. Create a developer account at [developer.twitter.com](https://developer.twitter.com/en) 
 3. Create new app and follow directions to generate API KEY and SECRET KEY.
