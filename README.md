@@ -2,7 +2,7 @@
  
  ### A full stack web app built with Node Js and React that uses authentication to call data from the Twitter API.
  
-#### See it [here](https://twitteris-appicus.herokuapp.com/)
+#### See it [here](https://twitteris-appicus.herokuapp.com/) (please allow some time for Heroku to spin up the app).
  
  ![](readMeScreenshot.png)
  
