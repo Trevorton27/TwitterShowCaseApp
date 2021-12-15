@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.css';
-import './App.css';
+import '../index.css';
+import '../App.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 class Home extends React.Component {

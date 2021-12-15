@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './index.css';
-import './App.css';
+import '../index.css';
+import '../App.css';
 import axios from 'axios';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 

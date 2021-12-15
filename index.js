@@ -31,6 +31,7 @@ const getToken = () => {
       axios.defaults.headers.common = {
         Authorization: `Bearer ${res.data.access_token}`
       };
+      console.log('accessToken: ', res.data.access_token);
       return res.data.access_token;
     })
     .catch((error) => console.log(error));

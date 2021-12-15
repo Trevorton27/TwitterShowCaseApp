@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import './index.css';
-import Random from './random';
-import Search from './search';
-import Home from './home';
+import Random from './components/Random';
+import Search from './components/Search';
+import Home from './components/Home';
 import './App.css';
 
 class App extends Component {
