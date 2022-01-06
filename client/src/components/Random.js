@@ -59,7 +59,9 @@ const Random = () => {
               class='card-body text-dark'
               style={{ paddingBottom: '0px', paddingTop: '0px' }}
             >
-              <p class='card-text'>"{tweet.text}"</p>
+              <p class='card-text' style={{ color: '#fff' }}>
+                "{tweet.text}"
+              </p>
               <div
                 style={{
                   padding: '8px',
